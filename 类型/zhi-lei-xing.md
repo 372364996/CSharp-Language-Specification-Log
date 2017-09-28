@@ -6,6 +6,8 @@
 
 所有值类型都隐式声明一个公共无参实例构造函数，即默认构造函数。默认构造函数返回一个零初始化实例，即该值类型的**默认值。**
 
+与其他实例构造函数一样，值类型的默认构造函数也是用new运算符调用的，实际上处于效率原因不需要手动调用。
+
 * 所有简单类型：默认值是由所有位都置零的位模式产生的：
   * sbyte、byte、short、ushort、int、uint、long和ulong默认值为0；
   * char默认值为'\x0000';
@@ -15,6 +17,23 @@
   * bool默认值为false;
 * 枚举类型：默认值是0，该值被转换为枚举类型。
 * 结构类型：默认值是将所有值类型的字段设为它们的默认值并将所有引用类型设为null而产生的值。
+
+C\#提供称为**简单类型**的预定义结构程序集，简单类型通过保留字标识，而这些保留字只是System命名空间中预定义结构类型的别名。
+
+| 标识简单类型的保留字 | 别名类型 |
+| :--- | :--- |
+| sbyte | System.SByte |
+| byte | System.Byte |
+| short | System.Int16 |
+| ushort | System.UInt16 |
+| int | System.Int32 |
+| uint | System.UInt32 |
+| long | System.Int64 |
+| ulong | System.UInt64 |
+| char | System.Char |
+| float | System.Single |
+| double | System.Double |
+| decimal | System.Decimal |
 
 
 
