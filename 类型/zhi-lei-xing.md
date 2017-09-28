@@ -63,7 +63,7 @@ C\#支持9种整型：
 char类型归类为整型类型，但有两个方面有别于整型：
 
 * 不存在从其他类型到char类型的隐式转换；
-* char类型的常量必须写成character-literal（'\x000a'）或带有强制转换为类型char的整型（\(char\)10）。
+* char类型的常量必须写成character-literal（'\x000a'）或带有强制转换为类型char的整型，例如 \(char\)10。
 
 
 
