@@ -11,6 +11,8 @@
 * [类型](类型.md)
   * [值类型](类型/zhi-lei-xing.md)
   * [引用类型](类型/yin-yong-lei-xing.md)
+  * [装箱和拆箱](类型/zhuang-xiang-he-chai-xiang.md)
+  * [构造类型](类型/gou-zao-lei-xing.md)
 * [变量](变量.md)
 * [转换](转换.md)
 * [表达式](表达式.md)
