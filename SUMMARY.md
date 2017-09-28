@@ -3,6 +3,7 @@
 * [Introduction](README.md)
   * [Unicode字符转义序列](unicodezi-fu-zhuan-yi-xu-lie.md)
   * [预处理指令](yu-chu-li-zhi-ling.md)
+  * [值类型的默认值](zhi-lei-xing-de-mo-ren-zhi.md)
 * [词法结构](词法结构.md)
   * [文法](词法结构/文法.md)
 * [基本概念](基本概念.md)
