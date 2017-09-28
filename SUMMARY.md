@@ -15,6 +15,8 @@
   * [构造类型](类型/gou-zao-lei-xing.md)
 * [变量](变量.md)
 * [转换](转换.md)
+  * [隐式转换](转换/yin-shi-zhuan-huan.md)
+  * [显示转换](转换/xian-shi-zhuan-huan.md)
 * [表达式](表达式.md)
 * [语句](语句.md)
 * [命名空间](命名空间.md)
