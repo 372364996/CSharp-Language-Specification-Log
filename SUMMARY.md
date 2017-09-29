@@ -5,6 +5,7 @@
   * [预处理指令](yu-chu-li-zhi-ling.md)
   * [值类型的默认值](zhi-lei-xing-de-mo-ren-zhi.md)
   * [简单类型](jian-dan-lei-xing.md)
+  * [运算符的优先级和顺序关联性](yun-suan-fu-de-you-xian-ji-he-shun-xu-guan-lian-xing.md)
 * [词法结构](词法结构.md)
   * [文法](词法结构/文法.md)
 * [基本概念](基本概念.md)
