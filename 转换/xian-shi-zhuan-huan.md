@@ -81,12 +81,12 @@
   ```
   class C
   {
-  	int i;
-  	public C(int i) { this.i = i; }
-  	public static explicit operator C(string s) 
-  	{
-  		return new C(int.Parse(s));
-  	}
+      int i;
+      public C(int i) { this.i = i; }
+      public static explicit operator C(string s) 
+      {
+          return new C(int.Parse(s));
+      }
   }
   下面的示例说明显式动态转换：
   object o  = "1";
@@ -94,6 +94,8 @@
   var c1 = (C)o; // 显示引用转换，该过程会失败，因为"1"实际上不是C类型
   var c2 = (C)d; // 显示动态转换，该过程会成功
   ```
+
+## 
 
 
 
