@@ -28,6 +28,7 @@
 * [类](类.md)
   * [类声明](类/lei-sheng-ming.md)
   * [分部类型](类/fen-bu-lei-xing.md)
+  * [类成员](类/lei-cheng-yuan.md)
 * [结构](结构.md)
 * [数组](数组.md)
 * [接口](接口.md)
