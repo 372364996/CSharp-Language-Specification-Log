@@ -27,7 +27,32 @@
 
 ## 构造类型的成员
 
+[**构造类型**](/类型/gou-zao-lei-xing.md)的非继承成员是通过将成员声明中的每个类型形参（type-parameter）替换为构造类型的对应类型实参（type-argument）来获得的。替换过程基于类型声明的语义含义，并不只是文本替换。
 
+```
+泛型声明如下：
+class Gen<T,U>
+{
+    public T[,] a;
+    public void G(int i, T t, Gen<U,T> gt) {...}
+    public U Prop { get {...} set {...} }
+    public int H(double d) {...}
+}
+
+构造类型Gen<int [], IComparable<string>>成员如下：
+    public int[,][] a;
+    public void G(int i, int[] t, Gen<IComparable<string>, int[]> gt) {...}
+    public IComparable<string> Prop { get {...} set {...} }
+    public int H(double d) {...}
+```
+
+## 继承
+
+继承的一些重要性质：
+
+* 继承是可传递的。
+* 派生类扩展它的直接基类。
+* 实例构造函数、析构函数和静态构造函数不可继承，其他所有成员都可继承。
 
 
 
