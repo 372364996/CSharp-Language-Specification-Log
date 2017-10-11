@@ -181,28 +181,27 @@ class Test
 using System;
 class Base 
 {
-	protected void F() {
-		Console.WriteLine("Base.F");
-	}
+    protected void F() {                    //基类定义的受保护的成员
+        Console.WriteLine("Base.F");
+    }
 }
 class Derived: Base 
 {
-	public class Nested 
-	{
-		public void G() {
-			Derived d = new Derived();
-			d.F();		// ok
-		}
-	}
+    public class Nested 
+    {
+        public void G() {
+            Derived d = new Derived();
+            d.F();                        // ok，可以访问
+        }
+    }
 }
 class Test 
 {
-	static void Main() {
-		Derived.Nested n = new Derived.Nested();
-		n.G();
-	}
+    static void Main() {
+        Derived.Nested n = new Derived.Nested();
+        n.G();
+    }
 }
-
 ```
 
 
