@@ -119,32 +119,61 @@ class Derived: Base
 using System;
 class C
 {
-	int i = 123;
-	public void F() {
-		Nested n = new Nested(this);
-		n.G();
-	}
-	public class Nested
-	{
-		C this_c;
-		public Nested(C c) {
-			this_c = c;
-		}
-		public void G() {
-			Console.WriteLine(this_c.i);
-		}
-	}
+    int i = 123;
+    public void F() {
+        Nested n = new Nested(this);    //创建嵌套类，调用构造函数并传递this参数（this是类型C的实例）
+        n.G();
+    }
+    public class Nested                //嵌套类声明
+    {
+        C this_c;                      //保留对包含类的引用
+        public Nested(C c)             
+        {
+            this_c = c;                //保留对包含类的引用
+        }
+        public void G() {
+            Console.WriteLine(this_c.i);
+        }
+    }
 }
 
 class Test
 {
+    static void Main() {
+        C c = new C();
+        c.F();                        //输出 123
+    }
+}
+```
+
+对包含类型的私有成员的访问：
+
+嵌套类型可以访问包含它的类型可以访问的所有成员。
+
+```
+using System;
+class C 
+{
+	private static void F() {
+		Console.WriteLine("C.F");
+	}
+	public class Nested 
+	{
+		public static void G() {
+			F();
+		}
+	}
+}
+class Test 
+{
 	static void Main() {
-		C c = new C();
-		c.F();
+		C.Nested.G();
 	}
 }
 
 ```
+
+对包含类型的基类的受保护成员的访问：
 
 
 
