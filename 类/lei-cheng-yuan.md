@@ -81,7 +81,35 @@ class Gen<T,U>
 
 在类或结构内部声明的类型称为嵌套类型。
 
+可访问性：
 
+* 在类中声明的嵌套类型：可以具有5种可访问性，默认为private。
+* 在结构中声明的嵌套类型：可以具有3种（public、internal、private）可访问性，默认为private。
+
+隐藏基类成员：
+
+使用new操作符声明的嵌套类型可以显示隐藏基类成员。
+
+```
+using System;
+class Base
+{
+	public static void M() 
+	{
+		Console.WriteLine("Base.M");
+	}
+}
+class Derived: Base 
+{
+	new public class M 			//显示隐藏基类方法M
+	{
+		public static void F() 
+		{	
+			Console.WriteLine("Derived.M.F");
+		}
+	}
+}
+```
 
 
 
