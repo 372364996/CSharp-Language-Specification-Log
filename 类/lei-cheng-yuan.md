@@ -154,26 +154,56 @@ class Test
 using System;
 class C 
 {
-	private static void F() {
-		Console.WriteLine("C.F");
+    private static void F() 
+    {
+        Console.WriteLine("C.F");
+    }
+    public class Nested 
+    {
+        public static void G() 
+        {
+            F();            //访问包含类型的私有静态方法F
+        }
+    }
+}
+class Test 
+{
+    static void Main() 
+    {
+        C.Nested.G();
+    }
+}
+```
+
+对包含类型的基类的受保护成员的访问：
+
+```
+using System;
+class Base 
+{
+	protected void F() {
+		Console.WriteLine("Base.F");
 	}
+}
+class Derived: Base 
+{
 	public class Nested 
 	{
-		public static void G() {
-			F();
+		public void G() {
+			Derived d = new Derived();
+			d.F();		// ok
 		}
 	}
 }
 class Test 
 {
 	static void Main() {
-		C.Nested.G();
+		Derived.Nested n = new Derived.Nested();
+		n.G();
 	}
 }
 
 ```
-
-对包含类型的基类的受保护成员的访问：
 
 
 
