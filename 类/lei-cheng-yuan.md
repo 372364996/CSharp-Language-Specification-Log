@@ -94,21 +94,56 @@ class Gen<T,U>
 using System;
 class Base
 {
-	public static void M() 
-	{
-		Console.WriteLine("Base.M");
-	}
+    public static void M() 
+    {
+        Console.WriteLine("Base.M");
+    }
 }
 class Derived: Base 
 {
-	new public class M 			//显示隐藏基类方法M
+    new public class M             //显示隐藏基类方法M
+    {
+        public static void F() 
+        {    
+            Console.WriteLine("Derived.M.F");
+        }
+    }
+}
+```
+
+嵌套类中访问包含它的类：
+
+在嵌套类内部，不能通过this引用包含它的类型的实例成员，可通过在包含类中将包含类的实例this作为参数传递给嵌套类的构造函数来添加对包含类的引用。
+
+```
+using System;
+class C
+{
+	int i = 123;
+	public void F() {
+		Nested n = new Nested(this);
+		n.G();
+	}
+	public class Nested
 	{
-		public static void F() 
-		{	
-			Console.WriteLine("Derived.M.F");
+		C this_c;
+		public Nested(C c) {
+			this_c = c;
+		}
+		public void G() {
+			Console.WriteLine(this_c.i);
 		}
 	}
 }
+
+class Test
+{
+	static void Main() {
+		C c = new C();
+		c.F();
+	}
+}
+
 ```
 
 
