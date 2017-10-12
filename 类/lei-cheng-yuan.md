@@ -217,18 +217,17 @@ class Test
 ```
 class Outer<T>
 {
-	class Inner<U>
-	{
-		public static void F(T t, U u) {...}
-	}
-	static void F(T t) {
-		Outer<T>.Inner<string>.F(t, "abc");		// These two statements have
-		Inner<string>.F(t, "abc");					// the same effect
-		Outer<int>.Inner<string>.F(3, "abc");	// This type is different
-		Outer.Inner<string>.F(t, "abc");			// Error, Outer needs type arg
-	}
+    class Inner<U>
+    {
+        public static void F(T t, U u) {...}
+    }
+    static void F(T t) {
+        Outer<T>.Inner<string>.F(t, "abc");        //前两条语句效果相同
+        Inner<string>.F(t, "abc");
+        Outer<int>.Inner<string>.F(3, "abc");      //这个语句指定了外层包含类的形参类型
+        Outer.Inner<string>.F(t, "abc");           //错误，没有指定外层包含类的形参类型
+    }
 }
-
 ```
 
 
