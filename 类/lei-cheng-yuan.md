@@ -1,4 +1,6 @@
-# 类成员
+```
+类成员
+```
 
 一个类的成员由两部分组成：类内部定义的成员，和从它的直接基类继承的成员。
 
@@ -211,6 +213,23 @@ class Test
 在编写对泛型类中定义的嵌套类型的引用时，必须指定其构造类型（指定类型实参）。可在包含类中不加限制的使用嵌套类型。
 
 在构造嵌套类型时可以隐式的使用包含类的实例。
+
+```
+class Outer<T>
+{
+	class Inner<U>
+	{
+		public static void F(T t, U u) {...}
+	}
+	static void F(T t) {
+		Outer<T>.Inner<string>.F(t, "abc");		// These two statements have
+		Inner<string>.F(t, "abc");					// the same effect
+		Outer<int>.Inner<string>.F(3, "abc");	// This type is different
+		Outer.Inner<string>.F(t, "abc");			// Error, Outer needs type arg
+	}
+}
+
+```
 
 
 
