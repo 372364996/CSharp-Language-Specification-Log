@@ -252,10 +252,16 @@ void set_P(T value);
 对于委托类型为T的事件E，保留了如下签名：
 void add_E(T handler);
 void remove_E(T handler);
-
 ```
 
 为索引器保留的成员：
+
+```
+对于类型为T且具有形参列表L的索引器，保留了如下签名：
+T get_Item(L);
+void set_Item(L, T value);
+
+```
 
 为析构函数保留的成员：
 
