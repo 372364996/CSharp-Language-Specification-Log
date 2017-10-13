@@ -260,8 +260,15 @@ void remove_E(T handler);
 对于类型为T且具有形参列表L的索引器，保留了如下签名：
 T get_Item(L);
 void set_Item(L, T value);
-
+此外，保留成员名称Item。
 ```
 
 为析构函数保留的成员：
+
+```
+对于包含析构函数的类，保留了如下签名：
+void Finalize();
+```
+
+
 
