@@ -47,24 +47,31 @@ public class Color
 using System;
 namespace Program1
 {
-	public class Utils
-	{
-		public static readonly int X = 1;
-	}
+    public class Utils
+    {
+        public static readonly int X = 1;
+    }
 }
 namespace Program2
 {
-	class Test
-	{
-		static void Main() {
-			Console.WriteLine(Program1.Utils.X);
-		}
-	}
+    class Test
+    {
+        static void Main() {
+            Console.WriteLine(Program1.Utils.X);    //Console.WriteLine打印的值在编译时是未知的
+        }
+    }
 }
-
 ```
 
+此例中Program1和Program2表示两个单独编译的程序集，此时Console.WriteLine打印的值在编译时是未知的，如果改变Program1.Utils.X的值，只需重新编译Program1即可；但如果Program1.Utils.X是常量，则必须重新编译Program1和Program2。
+
+
+
 ## 可变字段
+
+当字段的声明中使用**volatile**修饰符时，该字段为可变字段。
+
+意义？
 
 ## 字段初始化
 
