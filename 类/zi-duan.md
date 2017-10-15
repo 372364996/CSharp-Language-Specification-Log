@@ -4,13 +4,43 @@
 
 ## 静态字段和实例字段
 
-当字段的声明中使用static修饰符时，该字段为静态字段。不使用static修饰符声明的字段称为实例字段。
+当字段的声明中使用**static**修饰符时，该字段为静态字段。不使用static修饰符声明的字段称为实例字段。
 
 静态字段在对象的所有实例之间共享，静态字段在应用程序域中只有一个副本。
 
 
 
 ## 只读字段
+
+当字段的声明中使用**readonly**修饰符时，该字段为只读字段。
+
+只读字段只能在以下情况下赋值：
+
+1. 只读字段声明时；
+2. 类型的静态构造函数中；
+3. 类型的实例构造函数中；
+
+对常量使用静态只读字段：
+
+如果想要声明一个常量，但类型不被支持（不允许）时，使用static readonly可以满足。
+
+```
+public class Color
+{
+	public static readonly Color Black = new Color(0, 0, 0);
+	public static readonly Color White = new Color(255, 255, 255);
+	public static readonly Color Red = new Color(255, 0, 0);
+	public static readonly Color Green = new Color(0, 255, 0);
+	public static readonly Color Blue = new Color(0, 0, 255);
+	private byte red, green, blue;
+	public Color(byte r, byte g, byte b) {
+		red = r;
+		green = g;
+		blue = b;
+	}
+}
+
+```
 
 ## 可变字段
 
