@@ -65,8 +65,6 @@ namespace Program2
 
 此例中Program1和Program2表示两个单独编译的程序集，此时Console.WriteLine打印的值在编译时是未知的，如果改变Program1.Utils.X的值，只需重新编译Program1即可；但如果Program1.Utils.X是常量，则必须重新编译Program1和Program2。
 
-
-
 ## 可变字段
 
 当字段的声明中使用**volatile**修饰符时，该字段为可变字段。
@@ -74,6 +72,8 @@ namespace Program2
 意义？
 
 ## 字段初始化
+
+无论是静态字段还是实例字段，字段的初始值都是字段类型的默认值。字段永远不可能是“未初始化”的。
 
 ## 变量初始值设定项
 
