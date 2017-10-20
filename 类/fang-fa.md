@@ -37,11 +37,67 @@ params修饰符用于声明一个形参数组，只能是一维数组类型。
 
 声明为分部方法或迭代器的方法不能有输出参数。
 
-性参数组：
+形参数组：
+
+使用**params**修饰符声明的形参是形参数组。形参数组必须位于形参表的最后并且必须是一维数组类型。
 
 ## 静态方法和实例方法
 
+方法的声明中包含**static**修饰符时，该方法为静态方法；不包含static修饰符的方法为实例方法。
+
 ## 虚方法
+
+一个实例方法的声明中包含virtual修饰符时，该方法为虚方法；不包含virtual修饰符的方法为非虚方法。
+
+实现：
+
+在声明的实例上和在派生类中都可以实现。
+
+重写：
+
+在派生类中实现虚方法，这个过程称为重写。
+
+调用：
+
+类的实例的运行时类型决定了要被调用的实现是哪一个。
+
+虚方法在方法隐藏中的使用：
+
+因为方法可以隐藏继承来的方法，因此一个类中可以包含若干个具有相同签名的虚方法。因为除了派生程度最大的那个方法，其他的方法都被隐藏起来了。
+
+```
+using System;
+class A
+{
+	public virtual void F() { Console.WriteLine("A.F"); }
+}
+class B: A
+{
+	public override void F() { Console.WriteLine("B.F"); }
+}
+class C: B
+{
+	new public virtual void F() { Console.WriteLine("C.F"); }
+}
+class D: C
+{
+	public override void F() { Console.WriteLine("D.F"); }
+}
+class Test
+{
+	static void Main() {
+		D d = new D();
+		A a = d;
+		B b = d;
+		C c = d;
+		a.F();
+		b.F();
+		c.F();
+		d.F();
+	}
+}
+
+```
 
 ## 重写方法
 
