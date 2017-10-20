@@ -102,6 +102,35 @@ class Test
 
 一个实例方法的声明中包含**override**修饰符，该方法为重写方法，重写方法使用相同的签名重写继承来的虚方法。
 
+重写方法遵循以下规则：
+
+* 已重写了的基方法是一个虚的、抽象或者重写方法，不能是静态、密封或非虚方法；
+* 重写方法和已重写了的基方法具有相同的返回类型；
+* 重写方法和已重写了的基方法具有相同的可访问性；
+
+基访问：
+
+重写方法可以通过基访问（base-access）的方式访问已重写了的基方法。
+
+```
+class A
+{
+	int x;
+	public virtual void PrintFields() {
+		Console.WriteLine("x = {0}", x);
+	}
+}
+class B: A
+{
+	int y;
+	public override void PrintFields() {
+		base.PrintFields();
+		Console.WriteLine("y = {0}", y);
+	}
+}
+
+```
+
 ## 密封方法
 
 ## 抽象方法
