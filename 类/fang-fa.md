@@ -236,7 +236,9 @@ class Path
 
 由一个block块或一个分号构成；
 
-返回值：
+返回类型：
+
+如果返回类型为void，或者方法是异步方法并且返回类型为System.Threading.Tasks.Task，则方法的返回类型为void；
 
 ## 方法重载
 
