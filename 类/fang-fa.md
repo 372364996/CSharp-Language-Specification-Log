@@ -100,7 +100,7 @@ class Test
 
 ## 重写方法
 
-一个实例方法的声明中包含**override**修饰符，该方法为重写方法，重写方法使用相同的签名重写继承来的虚方法。
+一个实例方法的声明中包含**override**修饰符，该方法为重写方法，重写方法使用相同的签名重写继承来的虚方法。只有在使用了override修饰符时，一个方法才能重写另一个方法，没有使用override修饰符时，具有相同签名的派生类方法会隐藏基类方法，并产生一条编译时警报。
 
 重写方法遵循以下规则：
 
@@ -115,23 +115,53 @@ class Test
 ```
 class A
 {
-	int x;
-	public virtual void PrintFields() {
-		Console.WriteLine("x = {0}", x);
+    int x;
+    public virtual void PrintFields() {
+        Console.WriteLine("x = {0}", x);
+    }
+}
+class B: A
+{
+    int y;
+    public override void PrintFields() {
+        base.PrintFields();                    //通过基访问方式，访问重写了的基方法
+        Console.WriteLine("y = {0}", y);
+    }
+}
+```
+
+## 密封方法
+
+一个实例方法声明中包含**sealed**修饰符时，该方法为密封方法，且声明时也必须包含override修饰符。密封方法的作用是防止派生类进一步重写虚方法。
+
+```
+using System;
+class A
+{
+	public virtual void F() {
+		Console.WriteLine("A.F");
+	}
+	public virtual void G() {
+		Console.WriteLine("A.G");
 	}
 }
 class B: A
 {
-	int y;
-	public override void PrintFields() {
-		base.PrintFields();
-		Console.WriteLine("y = {0}", y);
-	}
+	sealed override public void F() {
+		Console.WriteLine("B.F");
+	} 
+	override public void G() {
+		Console.WriteLine("B.G");
+	} 
+}
+class C: B
+{
+	override public void G() {
+		Console.WriteLine("C.G");
+	} 
 }
 
 ```
-
-## 密封方法
 
 ## 抽象方法
 
