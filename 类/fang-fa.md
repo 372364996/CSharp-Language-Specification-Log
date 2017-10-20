@@ -209,19 +209,22 @@ using System.Security.Permissions;
 using System.Runtime.InteropServices;
 class Path
 {
-	[DllImport("kernel32", SetLastError=true)]
-	static extern bool CreateDirectory(string name, SecurityAttribute sa);
-	[DllImport("kernel32", SetLastError=true)]
-	static extern bool RemoveDirectory(string name);
-	[DllImport("kernel32", SetLastError=true)]
-	static extern int GetCurrentDirectory(int bufSize, StringBuilder buf);
-	[DllImport("kernel32", SetLastError=true)]
-	static extern bool SetCurrentDirectory(string name);
+    [DllImport("kernel32", SetLastError=true)]
+    static extern bool CreateDirectory(string name, SecurityAttribute sa);
+    [DllImport("kernel32", SetLastError=true)]
+    static extern bool RemoveDirectory(string name);
+    [DllImport("kernel32", SetLastError=true)]
+    static extern int GetCurrentDirectory(int bufSize, StringBuilder buf);
+    [DllImport("kernel32", SetLastError=true)]
+    static extern bool SetCurrentDirectory(string name);
 }
-
 ```
 
 ## 分部方法
+
+方法的声明中包含**partial**修饰符时，该方法是分部方法。
+
+只能在分部类型中声明分部方法，而且要受多种约束。
 
 ## 扩展方法
 
