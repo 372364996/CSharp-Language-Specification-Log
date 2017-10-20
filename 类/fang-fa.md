@@ -138,32 +138,61 @@ class B: A
 using System;
 class A
 {
-	public virtual void F() {
-		Console.WriteLine("A.F");
-	}
-	public virtual void G() {
-		Console.WriteLine("A.G");
-	}
+    public virtual void F() {
+        Console.WriteLine("A.F");
+    }
+    public virtual void G() {
+        Console.WriteLine("A.G");
+    }
 }
 class B: A
 {
-	sealed override public void F() {
-		Console.WriteLine("B.F");
-	} 
-	override public void G() {
-		Console.WriteLine("B.G");
-	} 
+    sealed override public void F()     //防止C类进一步重写该方法
+    {
+        Console.WriteLine("B.F");
+    } 
+    override public void G() {
+        Console.WriteLine("B.G");
+    } 
 }
 class C: B
 {
-	override public void G() {
-		Console.WriteLine("C.G");
-	} 
+    override public void G() {
+        Console.WriteLine("C.G");
+    } 
 }
-
 ```
 
 ## 抽象方法
+
+一个实例方法声明时包含**abstract**修饰符时，该方法是抽象方法。抽象方法同时隐含为虚方法，但不能使用virtual修饰符，也不提供实现。
+
+**只允许在抽象类中声明抽象方法**。
+
+抽象方法适用于只提供抽象概念，所有默认实现都没有意义的场合，因为默认实现没有意义，派生类必须根据自己的意义来实现。
+
+一个抽象方法的什么可以重写虚方法，这使在抽象类的派生类中该方法的原始实现不可再陪被访问。
+
+```
+using System;
+class A
+{
+	public virtual void F() {
+		Console.WriteLine("A.F");
+	}
+}
+abstract class B: A
+{
+	public abstract override void F();
+}
+class C: B
+{
+	public override void F() {
+		Console.WriteLine("C.F");
+	}
+}
+
+```
 
 ## 外部方法
 
