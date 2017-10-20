@@ -197,6 +197,30 @@ class C: B
 
 ## 外部方法
 
+方法的声明中包含**extern**修饰符时，该方法是外部方法。外部方法是在外部实现的，编程语言通常是C\#以外的语言。
+
+外部方法通常与DllImport属性一起使用，从而使外部方法可以由dll实现。
+
+当包含DllImport属性时，方法的声明必须包含**static修饰符**。
+
+```
+using System.Text;
+using System.Security.Permissions;
+using System.Runtime.InteropServices;
+class Path
+{
+	[DllImport("kernel32", SetLastError=true)]
+	static extern bool CreateDirectory(string name, SecurityAttribute sa);
+	[DllImport("kernel32", SetLastError=true)]
+	static extern bool RemoveDirectory(string name);
+	[DllImport("kernel32", SetLastError=true)]
+	static extern int GetCurrentDirectory(int bufSize, StringBuilder buf);
+	[DllImport("kernel32", SetLastError=true)]
+	static extern bool SetCurrentDirectory(string name);
+}
+
+```
+
 ## 分部方法
 
 ## 扩展方法
