@@ -177,21 +177,22 @@ class C: B
 using System;
 class A
 {
-	public virtual void F() {
-		Console.WriteLine("A.F");
-	}
+    public virtual void F()     //虚方法的原始实现
+    {
+        Console.WriteLine("A.F");
+    }
 }
 abstract class B: A
 {
-	public abstract override void F();
+    public abstract override void F();    //抽象方法重写了虚方法
 }
 class C: B
 {
-	public override void F() {
-		Console.WriteLine("C.F");
-	}
+    public override void F()             //派生类必须有自己的实现，且不可访问原始实现（base.F()）
+    {
+        Console.WriteLine("C.F");
+    }
 }
-
 ```
 
 ## 外部方法
