@@ -32,6 +32,7 @@
   * [字段](类/zi-duan.md)
   * [方法](类/fang-fa.md)
   * [属性](类/shu-xing.md)
+  * [事件](类/shi-jian.md)
 * [结构](结构.md)
 * [数组](数组.md)
 * [接口](接口.md)
